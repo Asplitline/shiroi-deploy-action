@@ -1,6 +1,6 @@
 name: Build and Deploy
-
 on:
+  workflow_dispatch: #增加了工作流的手动运行
   push:
     branches:
       - main
@@ -96,7 +96,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: "pnpm"
       - uses: jongwooo/next-cache@v1
       - name: Install dependencies
         run: pnpm install
@@ -153,8 +153,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          source: 'release.zip'
-          target: '/tmp/shiro'
+          source: "release.zip"
+          target: "/tmp/shiro"
 
       - name: Exec deploy script with SSH
         uses: appleboy/ssh-action@master
