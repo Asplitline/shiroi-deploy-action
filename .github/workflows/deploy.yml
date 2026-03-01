@@ -162,10 +162,9 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
-     
           port: ${{ secrets.PORT }}
           script: |
-            set -e
+            set -ex
             source $HOME/.bashrc
             basedir=$HOME/shiro
             workdir=$basedir/${{ github.run_number }}
